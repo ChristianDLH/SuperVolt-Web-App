@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/app.cshtml";
+}
+
+    <div class="container-fluid container-width">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>CONT NO.</th>
+                    <th>TIPO</th>
+                    <th>PROPIETARIO</th>
+                    <th>DIRECCION</th>
+                    <th>OBSERVACIONES</th>
+                    <th>ESTADO</th>
+                    <th>ACCIONES</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var listaContadores in Model)
+                {
+                    <tr>
+                        <td style="text-align: center">@listaContadores.id_contador</td>
+                        <td>@listaContadores.tipoContador</td>
+                        <td>@listaContadores.propietarioNombre @listaContadores.propietarioApellidos</td>
+                        <td>@listaContadores.direccion</td>
+                        <td class=@((listaContadores.observaciones != "Ninguna")? "text-danger":"")>@listaContadores.observaciones</td>
+                        <td>
+                            @((listaContadores.estado == true) ? "Activo" : "Inactivo")
+                        </td>
+                        <td>
+                            <a href=@Url.Action("Medicion", "Contadores", new { contador = listaContadores.id_contador }) class="btn btn-success btn-sm"><i class="fas fa-calculator" style="margin-right: 10px"></i>Medir</a>
+                            @*<a href=@Url.Action("") class="btn btn-info btn-sm"><i class="fas fa-eye" style="margin-right: 10px"></i>Ver</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+

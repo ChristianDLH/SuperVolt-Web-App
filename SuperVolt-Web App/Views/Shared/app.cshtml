@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>app</title>
+    <link href="~/Content/app.css" rel="stylesheet" />
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-content">
+            <img src="/image/logo.png" alt="">
+            <h4 class="logo">SUPERVOLT</h4>
+        </div>
+        <div class="navigation">
+            <ul class="links">
+
+
+                @if (Session["User"] == null)
+                {
+                    <li><a href="@Url.Action("Index","Home")" class="link">INICIO</a></li>
+                    <li><a href="#" class="link">CONTACTANOS</a></li>
+                    <li><a href="#" class="link">¿QUIENES SOMOS?</a></li>
+                    <li><a href="@Url.Action("Login","Home")" class="link btn btn-outline-info btn-login">LOGIN</a></li>
+                }
+                else
+                {
+                    <li><a href="#" class="link"><i class="far fa-file-alt" style="margin-right: 10px"></i> FACTURAS</a></li>
+                    <li><a href="#" class="link"><i class="far fa-user" style="margin-right: 10px"></i>CLIENTES</a></li>
+                    <li><a href="@Url.Action("Logout", "Access")" class="link btn btn-outline-danger"><i class="fas fa-sign-out-alt" style="margin-right: 10px"></i>SALIR</a></li>
+                }
+            </ul>
+        </div>
+    </header>
+
+    @RenderBody()
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+
+</body>
+</html>
+
+

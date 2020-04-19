@@ -1,0 +1,45 @@
+﻿
+@model SuperVolt_Web_App.Models.ViewModels.LoginViewModel
+@{
+    Layout = "~/Views/Shared/app.cshtml";
+    string error = (string)ViewBag.Error;
+}
+
+<img class="wave" src="~/image/login/wave.png">
+<div class="content">
+    <div class="img">
+        <img src="~/image/login/login.svg">
+    </div>
+    <div class="login-container">
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <img class="avatar" src="~/image/login/avatar.svg">
+            <h2 class="title">Inicio de Sesión</h2>
+            <br>
+            @Html.ValidationMessageFor(x => x.mail, null, new { @class = "text-danger" })<br>
+            @Html.ValidationMessageFor(x => x.password, null, new { @class = "text-danger" })
+            <div class="text-danger">@error</div>
+
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    @Html.TextBoxFor(x => x.mail, new { placeholder = "Email", @class = "input" })
+                </div>
+            </div>
+
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    @Html.PasswordFor(x => x.password, new { placeholder = "Contraseña", @class = "input" })
+                </div>
+            </div>
+            <input type="submit" class="btn-iniciar" value="Login">
+        }
+    </div>
+</div>

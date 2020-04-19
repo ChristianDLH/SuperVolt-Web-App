@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Medicion";
+    Layout = "~/Views/Shared/app.cshtml";
+}
+
+    <div class="container-fluid container-width">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+        @* -------------------- PROPIETARIO --------------------- *@
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <label for="inputEmail3" class="col-sm-2 col-form-label float-right">PROPIETARIO</label>
+            </div>
+            <div class="col-sm-4 mx-auto">
+                <input type="text" readonly class="form-control" id="inputEmail3" placeholder="Mario Valey">
+            </div>
+        </div>
+        @* -------------------- CONTADOR --------------------- *@
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <label for="inputEmail3" class="col-sm-2 col-form-label float-right">CONTADOR No.</label>
+            </div>
+            <div class="col-sm-4 mx-auto">
+                <input type="text" readonly class="form-control" id="inputEmail3" placeholder="1">
+            </div>
+        </div>
+        @* -------------------- DIRECCION --------------------- *@
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <label for="inputEmail3" class="col-sm-2 col-form-label float-right">DIRECCION</label>
+            </div>
+            <div class="col-sm-4 mx-auto">
+                <input type="text" readonly class="form-control" id="inputEmail3" placeholder="7ma. Av. 1-37 z.2 Rabinal, Baja Verapaz">
+            </div>
+        </div>
+        @* -------------------- LECTURA ANT --------------------- *@
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <label for="inputEmail3" class="col-sm-2 col-form-label float-right">LECTURA ANTERIOR (WATTS)</label>
+            </div>
+            <div class="col-sm-4 mx-auto">
+                <input type="text" readonly class="form-control float-left" id="inputEmail3" placeholder="80">
+            </div>
+        </div>
+        @* -------------------- LECTURA NUEV --------------------- *@
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <label for="inputEmail3" class="col-sm-2 col-form-label float-right">LECTURA NUEVA (WATTS)</label>
+            </div>
+            <div class="col-sm-4 mx-auto">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="129">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="mx-auto">
+                <button class="btn btn-primary"><i class="far fa-file-alt mr-2"></i>Facturar</button>
+                <a href="#" class="btn btn-danger"><i class="fas fa-ban mr-2"></i>Cancelar</a>
+            </div>
+        </div>
+    </div>

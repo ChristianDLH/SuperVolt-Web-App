@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+    @Styles.Render("~/Content/login.css")
+    @Styles.Render("~/Content/app-login.css")
+
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/image/logo.png" alt="">
+            <h4 class="logo">SUPERVOLT</h4>
+        </div>
+        <nav>
+            <ul class="nav-links">
+
+                @if (Session["access_token"] == null)
+                {
+                    <li>@Html.ActionLink("INICIO", "Index", "Home", null, new { @class = "nav-lk" })</li>
+                    <li>@Html.ActionLink("¿QUIENES SOMOS?", "About", "Home", null, new { @class = "nav-lk" })</li>
+                    <li>@Html.ActionLink("CONTACTO", "Index", "Home", null, new { @class = "nav-lk" })</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("FACTURAS", "Index", "Home", null, new { @class = "nav-lk" })</li>
+                    <li>@Html.ActionLink("CLIENTES", "About", "Home", null, new { @class = "nav-lk" })</li>
+                }
+
+            </ul>
+        </nav>
+        <div>
+            @if (Session["access_token"] == null)
+            {
+                @Html.ActionLink("LOGIN", "Index", "Access", null, new { @class = "btn-login-link" })
+            }
+            else
+            {
+                @*@Html.ActionLink("SALIR", "Logout", "Access", null, new { @class = "btn-login-link" })*@
+                
+                <a href="@Url.Action("Logout", "Access")" class="btn-login-link">
+                    <i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN
+                </a>
+            }
+        </div>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+
+</body>
+</html>
